@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CreateYourOwn</string>
+    <string name="title_activity_individual">Individual</string>
+    <string name="title_activity_create_new_game">CreateNewGame</string>
+</resources>
