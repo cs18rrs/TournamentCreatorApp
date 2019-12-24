@@ -39,7 +39,7 @@ public class CreateNewGame extends AppCompatActivity {
      public void OnClick(View view){
         Intent in = new Intent(getApplicationContext(),MainActivity.class);
          Context context = getApplicationContext();
-         CharSequence text = "Game Created!";
+         CharSequence text = "Game Created!!";
          int duration = Toast.LENGTH_SHORT;
 
          Toast toast = Toast.makeText(context, text, duration);
