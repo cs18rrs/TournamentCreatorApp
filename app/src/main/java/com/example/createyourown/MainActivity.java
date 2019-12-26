@@ -2,6 +2,7 @@ package com.example.createyourown;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
    public void CreateNewGame(View view) {
        Intent in = new Intent(getApplicationContext(),CreateNewGame.class);
       startActivity(in);
+    }
+
+    public void TournamentBracket(View view){
+        Context context = getApplicationContext();
+        Intent in = new Intent(context,TournamentBracket.class);
+        startActivity(in);
     }
 //    public void onRadioButtonClicked(View view) {
 //        // Is the button now checked?

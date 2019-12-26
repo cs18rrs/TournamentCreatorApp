@@ -2,4 +2,10 @@
     <string name="app_name">CreateYourOwn</string>
     <string name="title_activity_individual">Individual</string>
     <string name="title_activity_create_new_game">CreateNewGame</string>
+    <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_tournament_bracket">TournamentBracket</string>
+
+    <string name="title_activity_bracket_page">BracketPage</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
