@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Bracket2"
+            android:label="Bracket2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".BracketPage"
             android:label="@string/title_activity_bracket_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TournamentBracket"
             android:label="@string/title_activity_tournament_bracket"

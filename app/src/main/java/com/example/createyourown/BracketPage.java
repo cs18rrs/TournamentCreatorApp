@@ -31,7 +31,6 @@ import java.util.ArrayList;
 public class BracketPage extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -57,11 +56,11 @@ public class BracketPage extends AppCompatActivity {
 
     }
 
-   public int PlayerCount() {
+
+    public int PlayerCount() {
         Intent in = getIntent();
         String str = in.getStringExtra("PlayerCount");
         int pn = Integer.parseInt(str);
-        int RoundCount = pn / 2;
         return pn;
     }
 
@@ -80,13 +79,14 @@ public class BracketPage extends AppCompatActivity {
 
         for (int j = 1; j <= Rounds; j++) {
 
-            switch (j){
+            switch (j) {
                 case 1:
                     Round1();
                     break;
                 case 2:
                     Round2();
                     break;
+
                 case 3:
                     Round3();
                     break;
@@ -100,86 +100,178 @@ public class BracketPage extends AppCompatActivity {
         }
     }
 
-    public ArrayList Round1(){
-        int pn = PlayerCount();
-        ArrayList<EditText> Bar1 = new ArrayList<EditText>();
+    //some issue in the loop fix it
+
+    public void Round1() {
+
         LinearLayout linearLayout1 = (findViewById(R.id.linearlayout));
-        for (int i = 0; i < pn; i++) {
 
-            Bar1.add(new EditText(BracketPage.this));
-            linearLayout1.addView(Bar1.get(i));
-
-        }
-        return Bar1;
+        ArrayList<EditText> Players = addplayers(1);
+        for (int i = 0; i < Players.size()-1; i++){
+            linearLayout1.addView(Players.get(i));
     }
-    public ArrayList Round2(){
-        ArrayList<EditText>  Bar2 = new ArrayList<EditText>();
-        int pn = PlayerCount();
+
+
+    }
+
+    public void Round2() {
         LinearLayout linearLayout2 = (findViewById(R.id.linearlayout2));
-        for (int i = 0; i < pn / 2; i++) {
-            Bar2.add(new EditText(BracketPage.this));
-            linearLayout2.addView(Bar2.get(i));
+
+        ArrayList<EditText> Players = addplayers(2);
+        if(Players.size()%2!=0)
+        {
+            Players.get(Players.size()-1);
         }
-      return Bar2;
+        for (int i = 0; i < Players.size()-1; i++){
+
+            linearLayout2.addView(Players.get(i));
+        }
+//        if(Players.size()%2!=0){
+//            linearLayout2.addView(new EditText(BracketPage.this));
+//        }
     }
 
-    public ArrayList Round3(){
-        int pn = PlayerCount();
-        ArrayList<EditText> Bar3 = new ArrayList<EditText>();
-        ArrayList Bar2 = Round2();
+    public void Round3() {
         LinearLayout linearLayout3 = (findViewById(R.id.linearlayout3));
-        if (Bar2.size() % 2 != 0) {
-            Bar3.add(new EditText(BracketPage.this));
 
+        ArrayList<EditText> Players = addplayers(3);
+        for (int i = 0; i < Players.size()-1; i++){
+            linearLayout3.addView(Players.get(i));
         }
-        for (int i = 0; i < (pn / 4); i++) {
-
-            Bar3.add(new EditText(BracketPage.this));
-            linearLayout3.addView(Bar3.get(i));
-
-        }
-        return Bar3;
+//        if (Bar2.size() % 2 != 0) {
+//            Bar3.add(new EditText(BracketPage.this));
+//
+//        }
+//        return Bar3;
     }
 
-    public ArrayList Round4(){
-        int pn =PlayerCount();
-        ArrayList<EditText> Bar4 = new ArrayList<EditText>();
-    ArrayList Bar3 = Round3();
-        LinearLayout  linearLayout4 = (findViewById(R.id.linearlayout4));
-        for (int i = 0; i < pn / 8; i++) {
+    public void Round4() {
+        LinearLayout linearLayout4 = (findViewById(R.id.linearlayout4));
 
-            Bar4.add(new EditText(BracketPage.this));
-            linearLayout4.addView(Bar4.get(i));
-
+        ArrayList<EditText> Players = addplayers(4);
+        for (int i = 0; i < Players.size()-1; i++){
+            linearLayout4.addView(Players.get(i));
         }
-        if (Bar3.size() % 2 != 0) {
-            Bar4.add(new EditText(BracketPage.this));
-
-        }
-        return Bar4;
+//        if (Bar3.size() % 2 != 0) {
+//            Bar4.add(new EditText(BracketPage.this));
+//
+//        }
+//        return Bar4;
     }
 
-    public ArrayList Round5(){
-        int pn =PlayerCount();
-        ArrayList<EditText>  Bar5 = new ArrayList<EditText>();
-        ArrayList Bar4 = Round4();
+    public void Round5() {
         LinearLayout linearLayout5 = (findViewById(R.id.linearlayout5));
-        for (int i = 0; i < pn / 16; i++) {
 
-            Bar5.add(new EditText(BracketPage.this));
-            linearLayout5.addView(Bar5.get(i));
+        ArrayList<EditText> Players = addplayers(5);
+        for (int i = 0; i < Players.size()-1; i++){
+            linearLayout5.addView(Players.get(i));
         }
-        if (Bar4.size() % 2 != 0) {
-            Bar5.add(new EditText(BracketPage.this));
-
-        }
-        return Bar5;
+//        if (Bar4.size() % 2 != 0) {
+//            Bar5.add(new EditText(BracketPage.this));
+//
+//        }
+//        return Bar5;
 
     }
+
+
+    public ArrayList addplayers(int round) {
+ArrayList <EditText> arr = new ArrayList<EditText>();
+int pc =PlayerCount();
+    switch(round){
+        case 1:
+            for(int i = 0;i<=pc;i++){
+                arr.add(new EditText(BracketPage.this));
+            }
+            break;
+        case 2:
+            for(int i = 0;i<=pc/2;i++){
+                arr.add(new EditText(BracketPage.this));
+            }
+            if(arr.size()%2!=0){
+
+            }
+            break;
+        case 3:
+            for(int i = 0;i<=pc/4;i++){
+                arr.add(new EditText(BracketPage.this));
+            }
+            break;
+        case 4:
+            for(int i = 0;i<=pc/8;i++){
+                arr.add(new EditText(BracketPage.this));
+            }
+            break;
+        case 5:
+            for(int i = 0;i<=pc/16;i++){
+                arr.add(new EditText(BracketPage.this));
+            }
+            break;
+            default:break;
 
 }
+return arr;
+    }
+
+//    public class BinaryTree{
+//
+//   Node root;
+//
+//   public void addNode(ArrayList key,View view){
+//       Node newNode = new Node(key,view);
+//       if(root == null){
+//           root=newNode;
+//       }
+//       else{
+//           Node focusNode  = root;
+//
+//           Node parent;
+//           while(true){
+//               parent = focusNode;
+//               if(key.indexOf(key)< focusNode.key){
+//                   focusNode = focusNode.leftchild;
+//
+//                   if(focusNode==null){
+//                       parent.leftchild = newNode;
+//                       return;
+//                   }
+//               }
+//               else{
+//                   focusNode =focusNode.rightchild;
+//                   if(focusNode==null){
+//                       parent.rightchild=newNode;
+//                       return;
+//                   }
+//               }
+//
+//
+//           }
+       }
 
 
+//   }
+//
+//
+//    }
+
+
+//    class Node{
+//        ArrayList key;
+//      View view;
+//
+//        Node leftchild;
+//        Node rightchild;
+//
+//
+//        Node(ArrayList key, View view){
+//            this.key =key;
+//            this.view=view;
+//        }
+//
+//        public String toString(){
+//            return view + "has a key"+ key;
+//        }
+//    }
 
 
 

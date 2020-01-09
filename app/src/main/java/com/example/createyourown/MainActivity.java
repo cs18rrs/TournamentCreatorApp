@@ -38,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
         Intent in = new Intent(context,TournamentBracket.class);
         startActivity(in);
     }
+    public void TournamentBrackets(View view){
+        Context context = getApplicationContext();
+        Intent in = new Intent(context,Bracket2.class);
+        startActivity(in);
+    }
+
 //    public void onRadioButtonClicked(View view) {
 //        // Is the button now checked?
 //        boolean checked = ((RadioButton) view).isChecked();

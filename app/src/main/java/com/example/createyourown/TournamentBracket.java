@@ -46,7 +46,7 @@ public class TournamentBracket extends AppCompatActivity {
                     int pn =Integer.parseInt(str);
                     if(pn%2==0){
                         Context context = getApplicationContext();
-                        Intent in = new Intent(context,BracketPage.class);
+                        Intent in = new Intent(context,Bracket2.class);
                         in.putExtra("PlayerCount",str);
                         startActivity(in);
                     }
